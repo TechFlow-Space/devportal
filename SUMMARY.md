@@ -16,6 +16,15 @@
   * [Testnet](introduction/the-icon-network/testnet.md)
   * [Mainnet](introduction/the-icon-network/mainnet.md)
 
+## Java Score
+
+### Score Development Guide
+  * [Development Tools](java-score/score-development-guide/development-tools.md)
+  * [Creating Your Workspace](java-score/score-development-guide/creating-workspace.md)
+  * [Configuration of SCORE](java-score/score-development-guide/score-configuration.md)
+  * [Writing Score](java-score/score-development-guide/writing-score.md)
+
+
 ## Python SCORE
 
 * [Overview](python-score/overview.md)
@@ -48,11 +57,6 @@
 * [Testing Framework](tbears/testing-framework.md)
 * [Emulated Node Environment](tbears/emulated-node-environment.md)
 * [Configuration](tbears/configuration.md)
-
-## Java Score
-
-* [Score Development Guide](java-score/score-development-guide/README.md)
-  * [Writing Score](java-score/score-development-guide/writing-score.md)
 
 ## ICON SDKs
 
