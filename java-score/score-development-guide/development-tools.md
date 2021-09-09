@@ -63,6 +63,7 @@ $ cd goloop
 $ make gochain-icon-image
 ```
 If the command runs successfully, it generates the docker image like the following.
+
 ```shell
 $ docker images goloop/gochain-icon
 
@@ -71,6 +72,7 @@ goloop/gochain-icon   latest    f674a8a67fa6   12 minutes ago   732MB
 ```
 
 * Starting the gochain-local-node using [gochain-local](https://github.com/icon-project/gochain-local)
+
 ```shell
 # Clone the gochain-local
 $ git clone git@github.com:icon-project/gochain-local.git
@@ -87,7 +89,7 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 
 ```
 
-Log messages will be generated at `./chain/iconee.log`
+* Log messages will be generated at `./chain/iconee.log`
 ```shell
 $ tail -f ./chain/iconee.log 
 T|20210908-18:24:58.606122|b6b5|9f8312|NM|protocolhandler.go:275 Broadcast {0x0200} 148 0 sub=consensus
@@ -100,7 +102,7 @@ D|20210908-18:24:58.609673|b6b5|9f8312|BM|manager.go:1120 Finalize(719151717355e
 D|20210908-18:24:58.609723|b6b5|9f8312|SV|manager.go:573 Validators:1 RoundLimitFactor:3 --> RoundLimit:1
 ```
 
-**Stop the container**
+* Stop the container
 ```shell
 $ ./run_gochain.sh stop
 >>> STOP gochain-iconee
@@ -120,7 +122,7 @@ $ curl -s "https://get.sdkman.io" | bash
 ```
 * Install gradle
 ```shell
-* sdk install gradle 7.2
+$ sdk install gradle 7.2
 ```
 
 **MacOS**
