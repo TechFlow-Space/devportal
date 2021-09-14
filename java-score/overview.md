@@ -1,4 +1,4 @@
-### ICON Smart Contract - SCORE
+## ICON Smart Contract - SCORE
 
 SCORE (Smart Contract on Reliable Environment) is a smart contract running on 
 the ICON network. A smart contract is a collection of codes (functions) and data 
@@ -9,7 +9,7 @@ address that the SCORE resides in. Any service logic that can be modeled by a st
 transition machine can be implemented in the SCORE code.The score contract can 
 self-execute based on triggered events, and transactions are transparent and trackable
 
-![Score Model](images/score_model.jpg)
+![Score Model](../.gitbook/assets/score_model.jpg)
 
 SCORE is initially deployed on the blockchain by sending a deploy transaction that holds
 compressed binary data of the SCORE code. Once you deploy a SCORE on the ICON network 
@@ -28,14 +28,5 @@ network calls that may get different results depending on the connection, cannot
 system calls that results may also differ between nodes. Also, you cannot do 
 long-running operations in SCORE, that may prevent forming consensus between nodes. 
 These sandbox policies should be obeyed by every SCORE programmer.
-
-### Limitations
-
-- SCORE code size is limited to about 64 KB (actually bounded by the maximum step 
-limit value during processing its deploy transaction) after being compressed. 
-- The maximum count of inter-SCORE call or ICX transfer/send is 1024 in one transaction. 
-- The maximum stack depth that a SCORE can call external functions recursively is 
-64 in one transaction. 
-- Declaring member variables which are not managed by the state DB is prohibited.
 
 

@@ -1,4 +1,4 @@
-#Address Class
+# Address Class
 
 It represents an address of an account in the ICON Network.
 

@@ -1,4 +1,4 @@
-#Context Class
+# Context Class
 
 Every score has an associated Context which allows the application to interface with the 
 environment the SCORE is running. It includes the transaction and block context and other 
@@ -20,7 +20,7 @@ public static byte[] getTransactionHash()
 
 **getTransactionIndex**
 
-Returns the timestamp of a transaction request.
+Returns the transaction index in a block.
 ```java
 public static int getTransactionIndex()
 ```
@@ -122,7 +122,7 @@ public static java.math.BigInteger getBalance(Address address)
 
 Calls the method of the given account address with the value.
 ```java
-public static <T> T call​(java.lang.Class<T> cls, java.math.BigInteger value, 
+public static <T> T call(java.lang.Class<T> cls, java.math.BigInteger value, 
         Address targetAddress, java.lang.String method, java.lang.Object... params)
 ```
     Type parameters:    T - return type
@@ -140,7 +140,7 @@ public static <T> T call​(java.lang.Class<T> cls, java.math.BigInteger value,
 
 Calls the method of the given account address with the value.
 ```java
-public static java.lang.Object call​(java.math.BigInteger value, 
+public static java.lang.Object call(java.math.BigInteger value, 
         Address targetAddress, java.lang.String method, java.lang.Object... params)
 ```
     Parameters: value - the value in loop to transfer
@@ -156,7 +156,7 @@ public static java.lang.Object call​(java.math.BigInteger value,
 Calls the method of the account designated by the targetAddress.
 
 ```java
-public static <T> T call​(java.lang.Class<T> cls, Address targetAddress, 
+public static <T> T call(java.lang.Class<T> cls, Address targetAddress, 
         java.lang.String method, java.lang.Object... params)
 ```
     Type Parameters:    T - return type
