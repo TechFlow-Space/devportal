@@ -201,7 +201,6 @@ class AppTest {
     void fallback() {
         // verify the incoming funds
     }
-
 }
 ```
 

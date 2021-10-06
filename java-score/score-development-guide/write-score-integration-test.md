@@ -238,6 +238,5 @@ public class HelloWorldScore extends Score {
        Bytes txHash = txHandler.transfer(wallet,this.getAddress(),value);
        return getResult(txHash);
     }
-
 }
 ```
