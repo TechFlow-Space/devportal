@@ -8,7 +8,7 @@ Understand how to write a SCORE unit-test.
 
 ## Prerequisite
 
-* SCORE overview
+* [Score Overview](../overview.md)
 * General understanding of [testing in java.](https://junit.org/junit5/docs/current/user-guide/#writing-tests)
 
 ## How to Write SCORE Unit Test Code
@@ -118,4 +118,90 @@ SCORE unittest should inherit `TestBase`. Every test method should have `@Test` 
 * getValue()
   * returns the value of method
 
+### Examples
+
+The example is  of HelloWorld SCORE whose source code can be found on java-score examples. 
+
+**hello-world/main/HelloWorld.java**
+
+```java
+
+package com.iconloop.score.example;
+
+import score.Context;
+import score.ObjectReader;
+import score.ByteArrayObjectWriter;
+import score.annotation.External;
+import score.annotation.Payable;
+
+public class HelloWorld {
+    private final String name;
+
+    public HelloWorld(String name) {
+        this.name = name;
+    }
+
+    @External(readonly=true)
+    public String name() {
+        return name;
+    }
+
+    @External(readonly=true)
+    public String getGreeting() {
+        String msg = "Hello " + name + "!";
+        Context.println(msg);
+        return msg;
+    }
+
+    @Payable
+    public void fallback() {
+        // just receive incoming funds
+    }
+
+    @External
+    public void testRlp() {
+        var codec = "RLPn";
+        var msg = "testRLP";
+
+        ByteArrayObjectWriter w = Context.newByteArrayObjectWriter(codec);
+        w.write(msg.getBytes());
+        ObjectReader r = Context.newByteArrayObjectReader(codec, msg.getBytes());
+    }
+}
+```
+
+**hello-world/test/AppTest**
+
+```java
+
+package com.iconloop.score.example;
+import org.junit.jupiter.api.Test;
+import score.ByteArrayObjectWriter;
+import score.Context;
+import score.ObjectReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+class AppTest {
+    @Test
+    void appHasAName() {
+        final String name = "Alice";
+        HelloWorld classUnderTest = new HelloWorld(name);
+        assertEquals(classUnderTest.name(), name);
+    }
+
+    @Test
+    void appHasAGreeting() {
+        HelloWorld classUnderTest = new HelloWorld("Alice");
+        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    }
+
+    @Test
+    void fallback() {
+        // verify the incoming funds
+    }
+
+}
+```
 
