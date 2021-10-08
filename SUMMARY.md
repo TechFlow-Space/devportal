@@ -54,7 +54,8 @@
 * [Overview](java-score/overview.md)
 * [Score Development Guide](java-score/score-development-guide/README.md)
   * [Writing Score](java-score/score-development-guide/writing-score.md)
-  * [Icon Service API](https://www.javadoc.io/doc/foundation.icon/javaee-api/latest/index.html)
+  * [Iconservice API References](https://www.javadoc.io/doc/foundation.icon/javaee-api/latest/index.html)
+
 
 ## ICON SDKs
 

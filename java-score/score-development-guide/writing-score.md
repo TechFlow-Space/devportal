@@ -102,33 +102,6 @@ Below is the comparison of Java to  Python Score Structure
 
 The details of the tables are discussed further down below.
 
-### Java Score Library for ICON Standard Tokens
-
-By Including the package from [Maven Central](https://search.maven.org/search?q=g:com.github.sink772%20a:javaee-tokens)
-in the dependency of `build.gradle` you can create ICON standard Tokens like IRC2 and IRC3. Using this you no longer 
-required to write the whole thing from scratch.
-
-	implementation 'com.github.sink772:javaee-tokens:0.6.0'
-
-
-You need to create an entry Java class to inherit the attributes and methods from the basic token classes. 
-The example below would be the simplest IRC2 token SCORE with a fixed supply.
-
-```java
-public class IRC2FixedSupply extends IRC2Basic {
-    public IRC2FixedSupply(String _name, String _symbol) {
-        super(_name, _symbol, 3);
-        _mint(Context.getCaller(), BigInteger.valueOf(1000000));
-    	}
-	}
-```
-
-### Built-In Properties
-
-The score package has two classes using which you can interact with the score.
-* [Address Class](address.md)
-* [Context Class](context.md)
-
 ### Implementing Score External Methods
 
 Users can implement methods which are supposed to be involved from outside the blockchain. These methods can be 
@@ -169,7 +142,7 @@ in the transaction message. If optional parameters were omitted when the externa
 is called, the value of optional parameters would be their zero values.  The zero value is: 0 for numeric types, false 
 for the boolean type, and null for Object types.
 
-**Keep Annotators**
+**Keep Annotators (@Keep)**
 
 Denotes that the element should not be removed when the code is optimized by tool kit.
 
@@ -188,6 +161,33 @@ public void fallback() {
 However, if the `fallback` method is not annotated with `@Payable`, it would not be listed on the SCORE APIs and could 
 not be called as well. The `fallback` method cannot be annotated with `@External`  (i.e., fallback method cannot be 
 specified in the transaction message as a callee method)
+
+### Built-In Properties
+
+The score package has two classes using which you can interact with the score.
+* [Address Class](address.md)
+* [Context Class](context.md)
+
+
+### Java Score Library for ICON Standard Tokens
+
+By Including the package from [Maven Central](https://search.maven.org/search?q=g:com.github.sink772%20a:javaee-tokens)
+in the dependency of `build.gradle` you can create ICON standard Tokens like IRC2 and IRC3. Using this you no longer
+required to write the whole thing from scratch.
+
+	implementation 'com.github.sink772:javaee-tokens:0.6.0'
+
+You need to create an entry Java class to inherit the attributes and methods from the basic token classes.
+The example below would be the simplest IRC2 token SCORE with a fixed supply.
+
+```java
+public class IRC2FixedSupply extends IRC2Basic {
+    public IRC2FixedSupply(String _name, String _symbol) {
+        super(_name, _symbol, 3);
+        _mint(Context.getCaller(), BigInteger.valueOf(1000000));
+    	}
+	}
+```
 
 ### Storing State Data
 

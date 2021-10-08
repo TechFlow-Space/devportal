@@ -53,7 +53,7 @@ Every SCORE integration test class must inherit `TestBase`.
 
 TestBase class provides the following functions:
 
-1. You can write and run the test method with @Test annotation.The test can be initialized and finalized 
+1. You can write and run the test method with @Test annotation.Test can be initialized and finalized 
 setup and shutdown method.
 2. Emulate ICON service for test.
    1. Initialize ICON service and confirm genesis block. 
@@ -67,7 +67,7 @@ setup and shutdown method.
 
 The example is  of HelloWorld SCORE whose source code can be found on java-score examples. 
 
-**hello-world/main/HelloWorld.java**
+**hello-world/src/main/java/com.iconloop.score.example/HelloWorld.java**
 ```java
 
 package com.iconloop.score.example;
@@ -115,7 +115,7 @@ public class HelloWorld {
 
 ```
 
-**hello-world/intTest/cases/AppTestIT**
+**hello-world/src/intTest/java/foundation.icon.test/cases/AppTestIT**
 
 This contains different cases for the integration testing.
 

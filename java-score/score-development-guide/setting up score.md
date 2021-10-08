@@ -19,11 +19,9 @@ Intellij IDE. ‘Generate’ in intellij we can load the maven repository direct
 
 ```groovy
 dependencies{
-
-implementation 'foundation.icon:javaee-api:0.9.0'
-testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
-testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
-
+    implementation 'foundation.icon:javaee-api:0.9.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
 }
 ```
 
@@ -31,34 +29,33 @@ You need to optimize your jar bundle before deploying to the ICON network. It in
 ensure the actual development is successful. It contains mainClassName and archiveBaseName
 ```groovy
 optimizedJar {
-mainClassName = 'com.sample.score.App'
-archivesBaseName= 'app'
+    mainClassName = 'com.sample.score.App'
+    archivesBaseName= 'app'
 }
 
 ```
 
-Next is the deployJar. It contains the endpoint to where you want to deploy our score to.
+Next is the deployJar. It contains the endpoint to where you want to deploy your score to.
 The keystore credentials are passed here to deploy the score. The information about the keystoreName and 
 keystorePass is passed through gradle.properties. By doing so we can save our credentials' info from others when 
 an optimized jar is passed on.
 ```groovy
 deployJar {
-endpoints {
-sejong {
-uri = 'https://sejong.net.solidwallet.io/api/v3'
-nid = 0x53
-}
-local {
-uri = 'http://localhost:9082/api/v3'
-nid = 0x3
-}
-}
-keystore = rootProject.hasProperty('keystoreName') ? "$keystoreName" : ''
-password = rootProject.hasProperty('keystorePass') ? "$keystorePass" : ''
-
-parameters{
-arg('name', 'Groovy')
-}
+    endpoints {
+        sejong {
+            uri = 'https://sejong.net.solidwallet.io/api/v3'
+            nid = 0x53
+        }
+        local {
+            uri = 'http://localhost:9082/api/v3'
+            nid = 0x3
+        }
+    }
+    keystore = rootProject.hasProperty('keystoreName') ? "$keystoreName" : ''
+    password = rootProject.hasProperty('keystorePass') ? "$keystorePass" : ''
+    parameters{
+        arg('name', 'Groovy')
+    }
 }
 ```
 
@@ -69,31 +66,31 @@ This 'build.gradle' can be written in the root folder.
 
 ```groovy
 buildscript {
-repositories {
-mavenCentral()
-}
-dependencies {
-classpath 'foundation.icon:gradle-javaee-plugin:0.7.8'
-}
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'foundation.icon:gradle-javaee-plugin:0.7.8'
+    }
 }
 
 subprojects {
-repositories {
-mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-apply plugin: 'java'
-apply plugin: 'foundation.icon.javaee'
+    apply plugin: 'java'
+    apply plugin: 'foundation.icon.javaee'
 
-java {
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
-}
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 
-// need to add this option to retrieve formal parameter names
-compileJava {
-options.compilerArgs += ['-parameters']
-}
+    // need to add this option to retrieve formal parameter names
+    compileJava {
+        options.compilerArgs += ['-parameters']
+    }
 }
 ```
 
