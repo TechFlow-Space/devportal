@@ -57,6 +57,14 @@
 * [Emulated Node Environment](tbears/emulated-node-environment.md)
 * [Configuration](tbears/configuration.md)
 
+## Java Score
+
+* [Overview](java-score/overview.md)
+* [Score Development Guide](java-score/score-development-guide/README.md)
+  * [Writing Score](java-score/score-development-guide/writing-score.md)
+  * [Iconservice API References](https://www.javadoc.io/doc/foundation.icon/javaee-api/latest/index.html)
+
+
 ## ICON SDKs
 
 * [Overview](icon-sdks/overview.md)
