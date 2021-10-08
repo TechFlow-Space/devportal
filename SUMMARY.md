@@ -3,7 +3,7 @@
 * [Get Started](README.md)
 
 ## Introduction
-
+ 
 * [What Is ICON Network?](introduction/what-is-icon-network.md)
 * [ICON Key Concepts](introduction/icon-key-concepts/README.md)
   * [Accounts](introduction/icon-key-concepts/accounts.md)
