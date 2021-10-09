@@ -3,7 +3,7 @@
 * [Get Started](README.md)
 
 ## Introduction
-
+ 
 * [What Is ICON Network?](introduction/what-is-icon-network.md)
 * [ICON Key Concepts](introduction/icon-key-concepts/README.md)
   * [Accounts](introduction/icon-key-concepts/accounts.md)
@@ -17,11 +17,15 @@
   * [Mainnet](introduction/the-icon-network/mainnet.md)
 
 ## Java Score
-* Score Development Guide
+* [Overview](java-score/overview.md)
+* [Score Development Guide](java-score/score-development-guide/README.md)
   * [Development Tools](java-score/score-development-guide/development-tools.md)
   * [Creating Your Workspace](java-score/score-development-guide/creating-workspace.md)
   * [Configuration of SCORE](java-score/score-development-guide/score-configuration.md)
+  * [Setting up your SCORE](java-score/score-development-guide/setting-up-score.md)
   * [Writing Score](java-score/score-development-guide/writing-score.md)
+  * [Iconservice API References](https://www.javadoc.io/doc/foundation.icon/javaee-api/latest/index.html)
+  * [Testing your SCORE](java-score/score-development-guide/testing-your-score.md)
 
 
 ## Python SCORE
@@ -56,14 +60,6 @@
 * [Testing Framework](tbears/testing-framework.md)
 * [Emulated Node Environment](tbears/emulated-node-environment.md)
 * [Configuration](tbears/configuration.md)
-
-## Java Score
-
-* [Overview](java-score/overview.md)
-* [Score Development Guide](java-score/score-development-guide/README.md)
-  * [Writing Score](java-score/score-development-guide/writing-score.md)
-  * [Iconservice API References](https://www.javadoc.io/doc/foundation.icon/javaee-api/latest/index.html)
-
 
 ## ICON SDKs
 
