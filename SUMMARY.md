@@ -21,7 +21,9 @@
   * [Development Tools](java-score/score-development-guide/development-tools.md)
   * [Creating Your Workspace](java-score/score-development-guide/creating-workspace.md)
   * [Configuration of SCORE](java-score/score-development-guide/score-configuration.md)
+  * [Setting up your SCORE](java-score/score-development-guide/setting-up-score.md)
   * [Writing Score](java-score/score-development-guide/writing-score.md)
+  * [Testing your SCORE](java-score/score-development-guide/testing-your-score.md)
 
 
 ## Python SCORE
