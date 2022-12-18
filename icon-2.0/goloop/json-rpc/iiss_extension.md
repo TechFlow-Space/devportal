@@ -348,12 +348,12 @@ Returns the bond status of a given address
     "unbonds": [
       {
         "address": "hx1d6463e4628ee52a7f751e9d500a79222a7f3935",
-        "unbonding": "0x3782dace9d90000",
+        "value": "0x3782dace9d90000",
         "expireBlockHeight": "0xa"
       },
       {
         "address": "hxb6bc0bf95d90cb3cd5b3abafd9682a62f36cc826",
-        "unbonding": "0x6f05b59d3b20000",
+        "value": "0x6f05b59d3b20000",
         "expireBlockHeight": "0xa"
       }
     ]
@@ -809,7 +809,7 @@ Set allowed bonder list to P-Rep
 
 ### getBonderList
 
-Returns the allowed bonder list
+* Returns the allowed bonder list
 
 > Request
 
@@ -857,6 +857,92 @@ Returns the allowed bonder list
 | Key | VALUE Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | bonderList | T\_LIST\(T\_ADDR\_EOA,T\_ADDR\_SCORE\) | true | List of address \(MAX: 100 entries\) |
+
+### setScoreOwner
+
+Changes the owner of the score indicated by a given address
+
+* Only the score owner can change its owner.
+* If a score owner changes its owner to `hx0000000000000000000000000000000000000000`, it means that the score is frozen and no one can update it anymore.
+* score address can also be used as a score owner.
+* A score itself can be set to its owner.
+* Available from revision 17
+
+> Request
+
+```javascript
+{
+    "jsonrpc": "2.0",
+    "id": 1234,
+    "method": "icx_sendTransaction",
+    "params": {
+        "dataType": "call",
+        "data": {
+            "method": "setScoreOwner",
+            "params": {
+                "score": "cx8d3ef83a63d8bbd3f08c4a8b8a18fbae13368b40",
+                "owner": "hx3ece50aaa01f7c4d128c029d569dd86950c34215"
+            }
+        },
+        ...
+    }
+}
+```
+
+#### Parameters
+
+| KEY | VALUE type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| score | T\_ADDRESS | true | score address to change its owner |
+| owner | T\_ADDRESS | true | new owner address of a given score |
+
+### getScoreOwner
+
+Returns the owner of the score indicated by a given address
+
+* Every score except for system score has an owner.
+* The owner of system score (`cx0000000000000000000000000000000000000000`) is null.
+* Available from revision 17
+
+> Request
+
+```javascript
+{
+    "jsonrpc": "2.0",
+    "id": 1234,
+    "method": "icx_call",
+    "params": {
+        "to": "cx0000000000000000000000000000000000000000",
+        "dataType": "call",
+        "data": {
+            "method": "getScoreOwner",
+            "params": {
+                "score": "cx8d3ef83a63d8bbd3f08c4a8b8a18fbae13368b40"
+            }
+        },
+    }
+}
+```
+
+#### Parameters
+
+| KEY | VALUE type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| score | T\_ADDRESS | true | score address to query |
+
+> Example responses
+
+```javascript
+{
+    "jsonrpc": "2.0",
+    "id": 1234,
+    "result": "hx3ece50aaa01f7c4d128c029d569dd86950c34215"
+}
+```
+
+#### Returns
+
+Owner address of a given score
 
 ## References
 
